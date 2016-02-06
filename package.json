@@ -1,0 +1,21 @@
+{
+  "name": "args-parser",
+  "version": "1.0.0",
+  "description": "Straight-forward node.js arguments parser",
+  "main": "parse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "args",
+    "parser",
+    "args-parser",
+    "arguments"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eveningkid/args-parser"
+  },
+  "author": "eveningkid",
+  "license": "Apache-2.0"
+}
