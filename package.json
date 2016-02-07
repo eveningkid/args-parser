@@ -1,6 +1,6 @@
 {
   "name": "args-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Straight-forward node.js arguments parser",
   "main": "parse.js",
   "scripts": {
