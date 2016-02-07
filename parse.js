@@ -12,6 +12,8 @@ function Parse (argv) {
 
 	// Returned object
 	var args = {};
+	
+	var argName, argValue;
 
 	// For each argument
 	argv.forEach(function (arg, index) {
@@ -19,20 +21,15 @@ function Parse (argv) {
 		arg = arg.split('=');
 
 		// Retrieve the argument name
-		var argName = arg[0];
-		
-		// Remove the two "--" in front of the argument
-		if (argName.slice(0, 2) == "--") {
-			argName = argName.slice(2);
-		}
-
-		// Or if it is a single hyphen
-		if (argName.slice(0, 1) == '-') {
-			argName = argName.slice(1);
+		argName = arg[0];
+    
+    	// Remove "--" or "-"
+		if (argName.indexOf('-') === 0) {
+			argName = argName.slice(argName.slice(0, 2).lastIndexOf('-') + 1);
 		}
 
 		// Associate defined value or initialize it to "true" state
-		var argValue = (arg.length === 2) ? arg[1] : true;
+		argValue = (arg.length === 2) ? arg[1] : true;
 
 		// Finally add the argument to the args set
 		args[argName] = argValue;
