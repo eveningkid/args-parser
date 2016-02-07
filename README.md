@@ -31,9 +31,17 @@ Will return:
 
 ```json
 {
-   careful: undefined,
-   dangerous: undefined,
-   tomatoes: 3,
-   tonight: undefined
+   "careful": true,
+   "dangerous": true,
+   "tomatoes": 3,
+   "tonight": true
+}
+```
+
+So then you can easily check what you need:
+
+```javascript
+if (args.careful) {
+    // Do something
 }
 ```

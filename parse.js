@@ -31,8 +31,8 @@ function Parse (argv) {
 			argName = argName.slice(1);
 		}
 
-		// Associate defined value or initialize it to "undefined" state
-		var argValue = (arg.length === 2) ? arg[1] : undefined;
+		// Associate defined value or initialize it to "true" state
+		var argValue = (arg.length === 2) ? arg[1] : true;
 
 		// Finally add the argument to the args set
 		args[argName] = argValue;
