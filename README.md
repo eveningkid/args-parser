@@ -45,3 +45,6 @@ if (args.careful) {
     // Do something
 }
 ```
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/eveningkid/args-parser/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
