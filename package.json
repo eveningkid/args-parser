@@ -2,7 +2,7 @@
   "name": "args-parser",
   "version": "1.0.1",
   "description": "Straight-forward node.js arguments parser",
-  "main": "parse.js",
+  "main": "dist/parse.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
