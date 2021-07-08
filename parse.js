@@ -28,8 +28,6 @@ function Parse(argv) {
       argName = argName.slice(argName.slice(0, 2).lastIndexOf('-') + 1);
     }
 
-    console.log(arg)
-
     // Parse argument value or set it to `true` if empty
     argValue =
       arg[1] !== ''
