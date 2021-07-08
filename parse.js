@@ -6,7 +6,7 @@
 	License: Apache-2.0
 */
 
-const ARGUMENT_SEPARATION_REGEX = /([^=\s]+)=?\s?(.*)/;
+const ARGUMENT_SEPARATION_REGEX = /([^=\s]+)=?\s*(.*)/;
 
 function Parse(argv) {
   // Removing node/bin and called script name
@@ -16,7 +16,6 @@ function Parse(argv) {
   let argName, argValue;
 
   argv.forEach(function (arg) {
-
     // Separate argument for a key/value return
     arg = arg.match(ARGUMENT_SEPARATION_REGEX);
     arg.splice(0, 1);
