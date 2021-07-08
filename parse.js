@@ -6,7 +6,7 @@
 	License: Apache-2.0
 */
 
-const ARGUMENT_SEPARATION_REGEX = /([^=\s]+)=?([^\s]*)/;
+const ARGUMENT_SEPARATION_REGEX = /([^=\s]+)=?(.*)/;
 
 function Parse(argv) {
   // Removing node/bin and called script name
@@ -27,6 +27,8 @@ function Parse(argv) {
     if (argName.indexOf('-') === 0) {
       argName = argName.slice(argName.slice(0, 2).lastIndexOf('-') + 1);
     }
+
+    console.log(arg)
 
     // Parse argument value or set it to `true` if empty
     argValue =
