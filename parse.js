@@ -1,9 +1,9 @@
 'use strict';
 
 /*
-	Straight-forward node.js arguments parser
-	Author: eveningkid
-	License: Apache-2.0
+  Straight-forward node.js arguments parser
+  Author: eveningkid
+  License: Apache-2.0
 */
 
 const ARGUMENT_SEPARATION_REGEX = /([^=\s]+)=?\s*(.*)/;
@@ -17,10 +17,10 @@ const Parse = (argv) => {
 
   for (let arg of argv) {
     // Separate argument for a key/value return
+    let beforeArg = arg;
     arg = arg.match(ARGUMENT_SEPARATION_REGEX);
     if (!arg) {
-      console.error("error: invalid syntax!!\nsyntax: node script.js careful -dangerous --tomatoes=3 --tonight --key=ek==\nfor more visit https://www.npmjs.com/package/args-parser");
-      return {};
+      throw new Error(`invalid syntax at "${beforeArg}" \nsyntax: node script.js careful -dangerous --tomatoes=3 --tonight --key=ek==\nfor more visit https://www.npmjs.com/package/args-parser`);
     }
     arg.splice(0, 1);
 
