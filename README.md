@@ -2,6 +2,10 @@
 
 Straight-forward node.js arguments parser.
 
+[![NPM version](https://img.shields.io/npm/v/args-parser.svg?label=version)](https://www.npmjs.com/package/args-parser)
+[![NPM downloads](https://img.shields.io/npm/dm/args-parser.svg)](https://www.npmjs.com/package/args-parser)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 ```bash
 $ node ./script.js careful -dangerous --tomatoes=3 --tonight --key=ek==
 

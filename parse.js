@@ -1,23 +1,27 @@
 'use strict';
 
 /*
-	Straight-forward node.js arguments parser
-	Author: eveningkid
-	License: Apache-2.0
+  Straight-forward node.js arguments parser
+  Author: eveningkid
+  License: Apache-2.0
 */
 
 const ARGUMENT_SEPARATION_REGEX = /([^=\s]+)=?\s*(.*)/;
 
-function Parse(argv) {
+const Parse = (argv) => {
   // Removing node/bin and called script name
   argv = argv.slice(2);
 
   const parsedArgs = {};
   let argName, argValue;
 
-  argv.forEach(function (arg) {
+  for (let arg of argv) {
     // Separate argument for a key/value return
+    let beforeArg = arg;
     arg = arg.match(ARGUMENT_SEPARATION_REGEX);
+    if (!arg) {
+      throw new Error(`invalid syntax at "${beforeArg}" \nsyntax: node script.js careful -dangerous --tomatoes=3 --tonight --key=ek==\nfor more visit https://www.npmjs.com/package/args-parser`);
+    }
     arg.splice(0, 1);
 
     // Retrieve the argument name
@@ -37,7 +41,7 @@ function Parse(argv) {
         : true;
 
     parsedArgs[argName] = argValue;
-  });
+  };
 
   return parsedArgs;
 }
