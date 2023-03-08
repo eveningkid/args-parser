@@ -6,7 +6,7 @@
 	License: Apache-2.0
 */
 
-const ARGUMENT_SEPARATION_REGEX = /([^=\s]+)=?\s*(.*)/;
+const ARGUMENT_SEPARATION_REGEX = /^([^=\s]+)=?\s*(.*)/;
 
 function Parse(argv) {
   
