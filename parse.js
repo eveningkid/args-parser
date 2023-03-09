@@ -6,40 +6,32 @@
 	License: Apache-2.0
 */
 
-const ARGUMENT_SEPARATION_REGEX = /([^=\s]+)=?\s*(.*)/;
+const ARGUMENT_SEPARATION_REGEX = /^([^=\s]+)=?\s*(.*)/;
 
 function Parse(argv) {
-  // Removing node/bin and called script name
-  argv = argv.slice(2);
-
+  
   const parsedArgs = {};
-  let argName, argValue;
-
-  argv.forEach(function (arg) {
-    // Separate argument for a key/value return
-    arg = arg.match(ARGUMENT_SEPARATION_REGEX);
-    arg.splice(0, 1);
-
-    // Retrieve the argument name
-    argName = arg[0];
-
+  // Removing node/bin and called script name by starting at index 2
+  for(let i = 2; i < argv.length; i++){
+    // Separate argument for a key/value return, ignoring full match
+    let [_, argName, argValue] = argv[i].match(ARGUMENT_SEPARATION_REGEX);
+    
     // Remove "--" or "-"
-    if (argName.indexOf('-') === 0) {
-      argName = argName.slice(argName.slice(0, 2).lastIndexOf('-') + 1);
+    if (argName[0] === '-') {
+      argName = argName.slice(argName[1] === '-' ? 2 : 1);
     }
-
+    
     // Parse argument value or set it to `true` if empty
-    argValue =
-      arg[1] !== ''
-        ? parseFloat(arg[1]).toString() === arg[1]
-          ? +arg[1]
-          : arg[1]
+    const numberValue = +argValue
+    parsedArgs[argName] =
+      argValue !== ''
+        ? numberValue === numberValue /* Not NaN */ ? numberValue : argValue
         : true;
-
-    parsedArgs[argName] = argValue;
-  });
+  }
 
   return parsedArgs;
 }
 
 module.exports = Parse;
+
+if(typeof process !== 'undefined') module.exports.parsedArgv = Parse(process.argv || [])
