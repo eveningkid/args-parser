@@ -25,7 +25,7 @@ function Parse(argv) {
     const numberValue = +argValue
     parsedArgs[argName] =
       argValue !== ''
-        ? !Number.isNaN(numberValue) ? numberValue : argValue
+        ? numberValue === numberValue /* Not NaN */ ? numberValue : argValue
         : true;
   }
 
@@ -34,5 +34,4 @@ function Parse(argv) {
 
 module.exports = Parse;
 
-// If process.argv is available, make parsed 
 if(typeof process !== 'undefined') module.exports.parsedArgv = Parse(process.argv || [])
